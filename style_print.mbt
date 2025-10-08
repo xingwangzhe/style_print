@@ -13,6 +13,12 @@ pub fn styl(text : String) -> StyledText {
 }
 
 ///|
+// 创建并返回一个带默认样式的 StyledText（包的主要入口）
+// Create and return a StyledText with default Style (primary package entry)
+
+///|
+
+///|
 // 将 StyledText 渲染并打印到标准输出（包含 ANSI 转义）。
 pub fn styl_print(st : StyledText) -> Unit {
   // 使用类型方法渲染为 ANSI 字符串并打印。
@@ -22,9 +28,15 @@ pub fn styl_print(st : StyledText) -> Unit {
 ///|
 // 便捷构造器：直接用三个分量构造一个 Color::RGB 实例。
 // 推荐用户使用此函数构造真彩色（true-color）前/背景色。
-pub fn rgb_color(r : UInt, g : UInt, b : UInt) -> Color {
+fn rgb_color(r : UInt, g : UInt, b : UInt) -> Color {
   Color::RGB(RGB::{ r, g, b })
 }
+
+///|
+// 使用三个分量 r,g,b 构造一个 Color::RGB（便捷构造器）
+// Construct a Color::RGB from three components r,g,b (convenience constructor)
+
+///|
 
 ///|
 // 另提供一个更短的别名（可选）以便链式调用时更简洁：

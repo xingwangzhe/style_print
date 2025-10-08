@@ -21,7 +21,11 @@
 // 本文件实现了名为 Color 的枚举到前/背景 ANSI SGR 数字片段的映射。
 
 ///|
-pub fn color_to_fg_code(color : Color) -> String {
+// 将 Color 转换为前景色 ANSI SGR 代码片段
+// Convert a Color into the foreground ANSI SGR numeric fragment
+
+///|
+fn color_to_fg_code(color : Color) -> String {
   match color {
     Black => "30"
     Red => "31"
@@ -44,7 +48,11 @@ pub fn color_to_fg_code(color : Color) -> String {
 }
 
 ///|
-pub fn color_to_bg_code(color : Color) -> String {
+// 将 Color 转换为背景色 ANSI SGR 代码片段
+// Convert a Color into the background ANSI SGR numeric fragment
+
+///|
+fn color_to_bg_code(color : Color) -> String {
   match color {
     Black => "40"
     Red => "41"
