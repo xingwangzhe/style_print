@@ -1,0 +1,34 @@
+// Generated using `moon info`, DON'T EDIT IT
+package "xingwangzhe/style_print"
+
+// Values
+fn fib(Int) -> Int64
+
+fn init_style() -> Style
+
+// Errors
+
+// Types and methods
+type Color
+
+type RGB
+
+pub(all) struct Style {
+  foreground : Color?
+  background : Color?
+  bold : Bool
+  italic : Bool
+  underline : Bool
+  reversed : Bool
+}
+
+pub(all) struct StyledText {
+  text : String
+  style : Style
+  next : StyledText?
+}
+
+// Type aliases
+
+// Traits
+
