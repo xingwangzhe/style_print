@@ -54,7 +54,6 @@ pub fn usage_chain() -> Unit {
   let a = styl("one").color(Color::Red)
   let b = styl(" two").color(Color::Green).bold()
   let c = styl(" three").bg_color(Color::Blue).italic()
-  // 假设有 API 将它们串联 —— 这里演示按顺序打印
   styl_print(a)
   styl_print(b)
   styl_print(c)
