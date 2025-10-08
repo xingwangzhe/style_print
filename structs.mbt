@@ -28,6 +28,21 @@ enum Color {
   RGB(RGB)           // RGB 结构体，包含 r, g, b 各 0-255
 }
 
+struct Style {
+  foreground: Option[Color]
+  background: Option[Color]
+  bold: Bool
+  italic: Bool
+  underline: Bool
+  reversed: Bool
+}
+
+struct StyledText {
+  text: String
+  style: Style
+  next: Option[StyledText]
+}
+
 fn RGB::to_fg_code(self : RGB) -> String {
   if self.r <= 255 && self.g <= 255 && self.b <= 255 {
     "38;2;" + self.r.to_string() + ";" + self.g.to_string() + ";" + self.b.to_string()
