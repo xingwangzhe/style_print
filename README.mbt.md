@@ -29,11 +29,55 @@ pub fn example_rgb() -> Unit {
 }
 ```
 
-说明  
-Notes
+更多示例（直接用代码查看常用 API）
+More examples (use code to see common APIs)
 
-- 使用 `styl(text)` 创建一个 `StyledText` 实例，然后通过链式方法如 `.color(...)`、`.bg_color(...)`、`.bold()` 等修改样式；最后调用 `styl_print` 输出带样式的文本。  
-  Use `styl(text)` to create a `StyledText` instance, then chain methods such as `.color(...)`, `.bg_color(...)`, `.bold()` to modify styles; finally call `styl_print` to output styled text。
+```moonbit
+// 前景色、背景色、加粗、斜体、下划线、反转
+pub fn usage_all_styles() -> Unit {
+  let s = styl("mixed styles").color(Color::Yellow).bg_color(Color::Magenta).bold().italic().underline().reverse();
+  styl_print(s)
+}
 
-- 如果想要得到不会被终端解释的可见 ANSI 序列，可以调用 `StyledText::to_ansi_not_styl()`。  
-  To get a visible (non-interpreted) representation of ANSI escapes, use `StyledText::to_ansi_not_styl()`。
+// 只设置前景色
+pub fn usage_fg_only() -> Unit {
+  styl_print(styl("foreground only").color(Color::Cyan))
+}
+
+// 只设置背景色
+pub fn usage_bg_only() -> Unit {
+  styl_print(styl("background only").bg_color(Color::BrightBlack))
+}
+
+// 链式组合与下一段拼接（next）
+pub fn usage_chain() -> Unit {
+  let a = styl("one").color(Color::Red)
+  let b = styl(" two").color(Color::Green).bold()
+  let c = styl(" three").bg_color(Color::Blue).italic()
+  // 假设有 API 将它们串联 —— 这里演示按顺序打印
+  styl_print(a)
+  styl_print(b)
+  styl_print(c)
+}
+
+// 使用真彩色 RGB
+pub fn usage_rgb_truecolor() -> Unit {
+  let c = rgb(12U, 34U, 56U)
+  styl_print(styl("truecolor").color(c))
+}
+
+// 获取不可解释的 ANSI 可见形式
+pub fn usage_show_escapes() -> Unit {
+  let s = styl("visible esc").color(Color::Red)
+  println(s.to_ansi_not_styl())
+}
+```
+
+简短说明  
+Short notes
+
+- 使用 `styl(text)` 创建 `StyledText`，链式调用 `.color()`、`.bg_color()`、`.bold()` 等进行样式设置。  
+- Use `styl(text)` to create a `StyledText` instance, then chain methods such as `.color()`, `.bg_color()`, `.bold()` to modify styles.
+
+- 调试或展示 ANSI 序列可调用 `to_ansi_not_styl()` 来查看不可解释的转义序列文本。  
+- To debug or show ANSI escapes, call `to_ansi_not_styl()` to get a visible (non-interpreted) representation of escape sequences.
