@@ -1,4 +1,27 @@
-fn color_to_fg_code(color: Color) -> String {
+///|
+// ANSI 颜色代码参考（前景/背景）:
+// 标准颜色：
+//   黑色：30 / 40
+//   红色：31 / 41
+//   绿色：32 / 42
+//   黄色：33 / 43
+//   蓝色：34 / 44
+//   洋红：35 / 45
+//   青色：36 / 46
+//   白色：37 / 47
+// 亮色版本：
+//   亮黑色：90 / 100
+//   亮红色：91 / 101
+//   亮绿色：92 / 102
+//   亮黄色：93 / 103
+//   亮蓝色：94 / 104
+//   亮洋红：95 / 105
+//   亮青色：96 / 106
+//   亮白色：97 / 107
+// 本文件实现了名为 Color 的枚举到前/背景 ANSI SGR 数字片段的映射。
+
+///|
+pub fn color_to_fg_code(color : Color) -> String {
   match color {
     Black => "30"
     Red => "31"
@@ -20,7 +43,8 @@ fn color_to_fg_code(color: Color) -> String {
   }
 }
 
-fn color_to_bg_code(color: Color) -> String {
+///|
+pub fn color_to_bg_code(color : Color) -> String {
   match color {
     Black => "40"
     Red => "41"
@@ -41,6 +65,3 @@ fn color_to_bg_code(color: Color) -> String {
     RGB(rgb) => rgb.to_bg_code()
   }
 }
-
-
-
