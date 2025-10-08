@@ -2,8 +2,8 @@
   "name": "xingwangzhe/style_print",
   "version": "0.1.5",
   "readme": "README.mbt.md",
-  "repository": "",
+  "repository": "https://github.com/xingwangzhe/style_print.git",
   "license": "Apache-2.0",
-  "keywords": [],
+  "keywords": ["ansi", "terminal", "colors", "styling", "truecolor", "cli", "formatting"],
   "description": "ANSI terminal styling: colors & text styles (truecolor)."
 }
